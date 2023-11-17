@@ -10,8 +10,19 @@
 
 	<div class="contentsection contemplete clear">
 		<div class="maincontent clear">
+			<!-- Pagination -->
 			<?php
-				$query = "select * from tbl_post limit 3";
+				$per_page = 3;
+				if(isset($_GET["page"])){
+					$page = $_GET["page"];
+				}else{
+					$page = 1;
+				}
+				$start_form = ($page-1) * $per_page;
+			?>
+			<!-- Pagination -->
+			<?php
+				$query = "select * from tbl_post limit $start_form, $per_page";
 				$post = $db->select($query);
 				if ($post) {
 					while($result = $post->fetch_assoc()){
@@ -27,9 +38,19 @@
 				</div>
 			</div>
 			<?php } ?>
+			<!-- Pagination -->
+			$query = "select * from tbl_post"
+			$result = $db->select($query);
+			$total_rows = mysqli_num_rows($result);
+			$total_pages = ceil($total_rows / $per_page);
+			<?php
+			 echo "<span class='pagination'><a href='index.php?page=1'>".'First Page'."</a>"
+						
+			 echo "<a href='index.php?page=$total_pages'>".'Last Page'."</a></span>"?>
+			<!-- Pagination -->
 			<?php } else { header("Location:404.php"); } ?>
 		</div>
 <?php include "inc/sidebar.php";?>
 <?php include "inc/footer.php";?>
 	
-<!-- Blog 4 End -->
+<!-- Blog 5 ar half End -->
