@@ -50,4 +50,4 @@
 <?php include "inc/sidebar.php";?>
 <?php include "inc/footer.php";?>
 	
-<!--- Blog 7 End --->
+<!--- Blog 14 End --->

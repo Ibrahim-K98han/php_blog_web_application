@@ -1,4 +1,25 @@
-﻿<!DOCTYPE html>
+<?php 
+	include '../lib/Session.php';
+	Session::checkSession();
+?>
+<?php include "../config/config.php";?>
+<?php include "../lib/Database.php";?>
+<?php include "../helpers/Format.php";?>
+<?php
+	$db = new Database();
+	$fm = new Format();
+?>
+<?php
+  //set headers to NOT cache a page
+  header("Cache-Control: no-cache, must-revalidate"); //HTTP 1.1
+  header("Pragma: no-cache"); //HTTP 1.0
+  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
+  // Date in the past
+  //or, if you DO want a file to cache, use:
+  header("Cache-Control: max-age=2592000"); 
+//30days (60sec * 60min * 24hours * 30days)
+?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -44,10 +65,15 @@
                 <div class="floatright">
                     <div class="floatleft">
                         <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
+                        <?php
+                            if(isset($_GET['action']) && $_GET['action'] == "logout"){
+                                Session::destroy();
+                            }
+                        ?>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
                             <li>Hello Admin</li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="?action=logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -59,68 +85,12 @@
         </div>
         <div class="grid_12">
             <ul class="nav main">
-                <li class="ic-dashboard"><a href="index.html"><span>Dashboard</span></a> </li>
+                <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
                 <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
-				<li class="ic-typography"><a href="changepassword.html"><span>Change Password</span></a></li>
-				<li class="ic-grid-tables"><a href="inbox.html"><span>Inbox</span></a></li>
-                <li class="ic-charts"><a href="postlist.html"><span>Visit Website</span></a></li>
+				<li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
+				<li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
+                <li class="ic-charts"><a href="postlist.php"><span>Visit Website</span></a></li>
             </ul>
         </div>
         <div class="clear">
         </div>
-        <div class="grid_2">
-            <div class="box sidemenu">
-                <div class="block" id="section-menu">
-                    <ul class="section menu">
-                       <li><a class="menuitem">Site Option</a>
-                            <ul class="submenu">
-                                <li><a href="titleslogan.html">Title & Slogan</a></li>
-                                <li><a href="social.html">Social Media</a></li>
-                                <li><a href="copyright.html">Copyright</a></li>
-                                
-                            </ul>
-                        </li>
-						
-                         <li><a class="menuitem">Update Pages</a>
-                            <ul class="submenu">
-                                <li><a>About Us</a></li>
-                                <li><a>Contact Us</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="menuitem">Category Option</a>
-                            <ul class="submenu">
-                                <li><a href="addcat.html">Add Category</a> </li>
-                                <li><a href="catlist.html">Category List</a> </li>
-                            </ul>
-                        </li>
-                        <li><a class="menuitem">Post Option</a>
-                            <ul class="submenu">
-                                <li><a href="addpost.html">Add Post</a> </li>
-                                <li><a href="postlist.html">Post List</a> </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="grid_10">
-		
-            <div class="box round first grid">
-                <h2> Dashbord</h2>
-                <div class="block">               
-                  Welcome admin panel        
-                </div>
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div class="clear">
-    </div>
-    <div id="site_info">
-        <p>
-         &copy; Copyright <a href="http://trainingwithliveproject.com">Training with live project</a>. All Rights Reserved.
-        </p>
-    </div>
-</body>
-</html>
