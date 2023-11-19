@@ -28,7 +28,7 @@
 				</div>
 	</div>
     <?php } } else { ?>
-    <p>Your Search Query Not Found !!</p>
+    <p>Your Search Query Not Found !!.</p>
     <?php } ?>
 
 </div>
