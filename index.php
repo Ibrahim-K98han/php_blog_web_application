@@ -1,12 +1,6 @@
-<?php include "config/config.php";?>
-<?php include "lib/Database.php";?>
-<?php include "helpers/Format.php";?>
 <?php include "inc/header.php";?>
 <?php include "inc/slider.php";?>
-<?php
-	$db = new Database();
-	$fm = new Format();
-?>
+
 
 	<div class="contentsection contemplete clear">
 		<div class="maincontent clear">
@@ -56,4 +50,4 @@
 <?php include "inc/sidebar.php";?>
 <?php include "inc/footer.php";?>
 	
-<!-- Blog 5 ar half End -->
+<!--- Blog 7 End --->
