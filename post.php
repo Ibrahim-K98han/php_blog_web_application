@@ -18,7 +18,7 @@
 				?>
 				<h2><?php echo $result['title'];?></h2>
 				<h4><?php echo $fm->formatDate($result['date']); ?>, By <a href="#"><?php echo $result['author']; ?></a></h4>
-				<img src="admin/upload/<?php echo $result['image'];?>" alt="post image"/>
+				<img src="admin/<?php echo $result['image'];?>" alt="post image"/>
 				<?php echo $result['body'];?>
 
 				
@@ -32,7 +32,7 @@
 						while($rresult = $relatedpost->fetch_assoc()){
 					?>
 					<a href="post.php?id=<?php echo $rresult['id']; ?>">
-						<img src="admin/upload/<?php echo $rresult['image']; ?>" alt="post image"/>
+						<img src="admin/<?php echo $rresult['image']; ?>" alt="post image"/>
 					</a>
 					<?php } } else{ echo "No Related post availabel !!"; } ?>
 				</div>
