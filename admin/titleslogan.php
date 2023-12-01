@@ -71,12 +71,12 @@
 }
 ?>
     <div class="block sloginblock">
-    <?php
-        $query = "SELECT * FROM title_slogan WHERE id = '1'";
-        $blog_title = $db->select($query);
-        if($blog_title){
-            while($result = $blog_title->fetch_assoc()){
-    ?>
+<?php
+    $query = "SELECT * FROM title_slogan WHERE id = '1'";
+    $blog_title = $db->select($query);
+    if($blog_title){
+        while($result = $blog_title->fetch_assoc()){
+?>
 <div class="leftside">
         <form action="" method="post" enctype="multipart/form-data">
             <table class="form">					
