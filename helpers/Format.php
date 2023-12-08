@@ -26,7 +26,7 @@
             }else if($title == 'contact'){
                 $title = 'contact';
             }
-            return $title = ucwords($title);
+            return $title = ucfirst($title);
         }
     }
 ?>
